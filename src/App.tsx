@@ -4,6 +4,7 @@ import Popular from "./pages/Popular";
 import TopRated from "./pages/TopRated";
 import Upcoming from "./pages/Upcoming";
 import NowPlaying from "./pages/NowPlaying";
+import SearchResults from "./pages/SearchResults";
 
 function App (): JSX.Element {
 
@@ -15,6 +16,7 @@ function App (): JSX.Element {
           <Route path="/top-rated" element={<TopRated />} />
           <Route path="/upcoming" element={<Upcoming />} />
           <Route path="/now-playing" element={<NowPlaying />} />
+          <Route path="/search" element={<SearchResults key={window.location.pathname} />} />
         </Routes>
       </Router>
     );

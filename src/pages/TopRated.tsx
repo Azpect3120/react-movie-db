@@ -8,7 +8,7 @@ function TopRated (): JSX.Element {
       <Navbar />
 
       <h1 className="w-5/6 text-4xl font-bold text-dark-text-base ml-auto p-12"> Top Rated Movies </h1>
-      <MovieList url="top_rated" />
+      <MovieList url="top_rated" query="" />
     </div>
   );
 }

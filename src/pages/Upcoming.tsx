@@ -8,7 +8,7 @@ function Upcoming (): JSX.Element {
       <Navbar />
 
       <h1 className="w-5/6 text-4xl font-bold text-dark-text-base ml-auto p-12"> Upcoming Movies </h1>
-      <MovieList url="upcoming" />
+      <MovieList url="upcoming" query="" />
     </div>
   );
 }

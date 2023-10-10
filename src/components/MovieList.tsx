@@ -5,12 +5,13 @@ import "../assets/main.css"
 
 interface Props {
   url: string;
+  query: string;
 }
 
 function MovieList (props: Props): JSX.Element {
   // Define state
   let [movies, setMovies] = useState<Movie[]>([]);
-  let [page, setPage] = useState(1);
+  let [page, setPage] = useState<number>(1);
   let [genres, setGenres] = useState<Genre[]>([]);
   // const initialLoad = useRef(true);
 
@@ -18,6 +19,7 @@ function MovieList (props: Props): JSX.Element {
   const appendMovies = (newMovies: Movie[]) => setMovies(movies = [...movies, ...newMovies]);
   const defineGenres = (newGenres: Genre[]) => setGenres(genres = newGenres);
   const nextPage = () => setPage(page = page + 1);
+
 
   // Fetch new data when the 'page' changes
   useEffect(() => {
@@ -35,7 +37,11 @@ function MovieList (props: Props): JSX.Element {
       })
       .catch(err => console.error(err));
 
-    fetch(`https://api.themoviedb.org/3/movie/${props.url}?api_key=${import.meta.env.VITE_API_KEY}&page=${page}`)
+    const url = props.url != "search" ?
+      `https://api.themoviedb.org/3/movie/${props.url}?api_key=${import.meta.env.VITE_API_KEY}&page=${page}` :
+      `https://api.themoviedb.org/3/search/movie?api_key=${import.meta.env.VITE_API_KEY}&query=${props.query}&page=${page}`;
+
+    fetch(url)
       .then(res => res.json())
       .then(data => {
         const movieArray: Movie[] = data.results;

@@ -1,5 +1,6 @@
 import "../assets/main.css"
 import { Link } from "react-router-dom"
+import Search from "./Search";
 
 function Navbar (): JSX.Element {
 
@@ -20,6 +21,8 @@ function Navbar (): JSX.Element {
       <Link to="/now-playing" className="w-full px-10 py-5 text-xl text-dark-text-base hover:text-dark-primary hover:bg-dark-background-main transition-all duration-100">
         Now Playing
       </Link>
+
+      <Search />
     </nav>
   );
 }

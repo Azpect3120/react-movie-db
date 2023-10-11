@@ -60,7 +60,7 @@ function MovieList (props: Props): JSX.Element {
   useEffect(() => {
     const handleScroll = () => {
       // User has reached the bottom of the page
-      if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+      if (window.innerHeight + Math.ceil(document.documentElement.scrollTop) >= document.documentElement.offsetHeight - 50) {
         nextPage()
       }
     };
